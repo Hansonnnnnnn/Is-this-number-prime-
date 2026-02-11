@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Serif:wght@400;600&display=swap");
+
+:root {
+  --bg: #f6f0e6;
+  --ink: #1f1b16;
+  --ink-soft: #5d534a;
+  --accent: #c24b2c;
+  --accent-2: #225b5f;
+  --panel: #fff8f0;
+  --panel-edge: rgba(31, 27, 22, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 15%, rgba(194, 75, 44, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(34, 91, 95, 0.15), transparent 55%),
+    linear-gradient(135deg, #fefaf4 0%, #f3e8d8 100%);
+  min-height: 100vh;
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header.hero {
+  position: relative;
+  padding: 72px 10vw 36px;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 900px;
+}
+
+.eyebrow {
+  font-family: "IBM Plex Serif", "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent-2);
+  margin: 0 0 16px;
+  font-size: 0.75rem;
+}
+
+h1 {
+  font-family: "IBM Plex Serif", "Times New Roman", serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  margin: 0 0 16px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.top-bar {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabs {
+  display: inline-flex;
+  gap: 8px;
+  background: rgba(31, 27, 22, 0.05);
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 27, 22, 0.08);
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 6px 14px rgba(31, 27, 22, 0.12);
+}
+
+.lang-toggle {
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 27, 22, 0.08);
+  background: rgba(31, 27, 22, 0.05);
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+
+.lang-btn.active {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 6px 14px rgba(31, 27, 22, 0.12);
+}
+
+main {
+  padding: 0 10vw 80px;
+  display: grid;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(31, 27, 22, 0.08);
+  border: 1px solid var(--panel-edge);
+  padding: 28px clamp(24px, 4vw, 48px);
+  animation: fadeUp 0.8s ease both;
+}
+
+.panel:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.panel-head h2 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+}
+
+.panel-head p {
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+}
+
+.checker label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+input#n-input {
+  padding: 14px 16px;
+  border: 1px solid rgba(31, 27, 22, 0.15);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+button#check-btn {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button#check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(194, 75, 44, 0.25);
+}
+
+.result {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px dashed rgba(31, 27, 22, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.result-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.result.good {
+  border-color: rgba(34, 91, 95, 0.5);
+  background: rgba(34, 91, 95, 0.1);
+}
+
+.result.bad {
+  border-color: rgba(194, 75, 44, 0.6);
+  background: rgba(194, 75, 44, 0.1);
+}
+
+.steps {
+  margin-top: 24px;
+  background: rgba(34, 91, 95, 0.08);
+  padding: 16px 20px;
+  border-radius: 14px;
+}
+
+.steps-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--accent-2);
+}
+
+ol {
+  margin: 0 0 0 18px;
+  padding: 0;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  font-family: "IBM Plex Serif", "Times New Roman", serif;
+  margin: 24px 0 8px;
+}
+
+.markdown p {
+  line-height: 1.7;
+  margin: 12px 0;
+  color: var(--ink-soft);
+}
+
+.markdown ul {
+  margin: 12px 0 12px 20px;
+}
+
+.markdown code {
+  background: rgba(31, 27, 22, 0.08);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+.markdown pre {
+  background: #1f1b16;
+  color: #f6f0e6;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+footer {
+  padding: 20px 10vw 40px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  header.hero {
+    padding: 56px 6vw 24px;
+  }
+
+  main {
+    padding: 0 6vw 60px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+
+  button#check-btn {
+    width: 100%;
+  }
+}

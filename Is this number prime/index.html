@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Is this a prime?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow" data-i18n="eyebrow">MathComplete - Number Theory Lab</p>
+      <h1 data-i18n="title">Is this a prime?</h1>
+      <p class="subtitle" data-i18n="subtitle">A fast Fermat-based check, plus the math story behind it.</p>
+      <div class="top-bar">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="checker" role="tab" aria-selected="true" data-i18n="tab_checker">Is this a prime?</button>
+          <button class="tab" data-tab="lesson" role="tab" aria-selected="false" data-i18n="tab_lesson">Algorithm Behind It</button>
+        </div>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel tab-panel active" id="checker">
+      <div class="panel-head">
+        <h2 data-i18n="checker_title">Quick Check</h2>
+        <p data-i18n="checker_desc">Enter any integer (very large values are supported). We use Fermat tests to decide if it is probably prime.</p>
+      </div>
+      <div class="checker">
+        <label for="n-input" data-i18n="input_label">Enter an integer n</label>
+        <div class="input-row">
+          <input id="n-input" type="text" inputmode="numeric" placeholder="e.g. 97 or 561" data-i18n-placeholder="input_placeholder" />
+          <button id="check-btn" data-i18n="check_btn">Check</button>
+        </div>
+        <div id="result" class="result idle">
+          <div class="result-title" data-i18n="result_idle_title">Waiting for input</div>
+          <div class="result-body" data-i18n="result_idle_body">We will show the result and the reasoning.</div>
+        </div>
+        <div class="steps">
+          <div class="steps-title" data-i18n="steps_title">Algorithm Steps (short)</div>
+          <ol>
+            <li data-i18n="step_1">Eliminate obvious composites: n &lt; 2, even numbers, or divisible by small primes.</li>
+            <li data-i18n="step_2">Run Fermat tests for several bases a: check a^(n-1) mod n = 1.</li>
+            <li data-i18n="step_3">If any test fails, n is composite; if all pass, n is probably prime.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel tab-panel" id="lesson">
+      <div class="panel-head">
+        <h2 data-i18n="lesson_title">Algorithm Behind It</h2>
+        <p data-i18n="lesson_desc">The explanation is written in Markdown and rendered here. You can edit the content files directly.</p>
+      </div>
+      <article id="md-content" class="markdown">
+        <p>正在载入教学内容...</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footer">© Number Theory Lab · Made for learning</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
